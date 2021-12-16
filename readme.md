@@ -3,6 +3,12 @@ email_sender_server
 
 Simple email sender endpoint for local smtp server. 
 
+fire up
+---
+
+```shell
+./run.sh 8081
+```
 
 Request
 ---
