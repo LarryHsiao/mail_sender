@@ -26,7 +26,7 @@ public class App {
                     new TkMethods(
                         req -> {
                             JsonObject reqBody = Json.createReader(req.body()).readObject();
-                            String to = reqBody.getString("email");
+                            String to = reqBody.getString("to");
                             String title = reqBody.getString("title");
                             String content = reqBody.getString("content");
                             String contentType = reqBody.getString("contentType");
