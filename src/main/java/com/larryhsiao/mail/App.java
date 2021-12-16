@@ -7,6 +7,8 @@ import org.takes.http.Exit;
 import org.takes.http.FtCli;
 import org.takes.rs.RsWithStatus;
 
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -23,8 +25,10 @@ public class App {
                     "/send_email",
                     new TkMethods(
                         req -> {
-                            String to = "larry_hsiao@cmoney.com.tw";
-                            String from = "web@gmail.com";
+                            JsonObject reqBody = Json.createReader(req.body()).readObject();
+                            String to = reqBody.getString("email");
+                            String code = reqBody.getString("code");
+                            String from = "2021@larryhsiao.com";
                             String host = "localhost";
                             Properties properties = System.getProperties();
                             properties.setProperty("mail.smtp.host", host);
@@ -36,8 +40,8 @@ public class App {
                                     Message.RecipientType.TO,
                                     new InternetAddress(to)
                                 );
-                                message.setSubject("This is the Subject Line!");
-                                message.setContent("<h1>This is actual message</h1>", "text/html");
+                                message.setSubject("尾牙手機綁定驗證碼");
+                                message.setContent("<h1>驗證碼: " + code + "</h1>", "text/html");
                                 Transport.send(message);
                                 System.out.println("Sent message successfully....");
                             } catch (MessagingException mex) {

@@ -10,10 +10,14 @@ mainClassName="com.larryhsiao.mail.App"
 
 repositories {
     mavenCentral()
+    maven { url ="https://larryhsiao.com:11000/repository/maven-public/"}
 }
 
 dependencies {
+    implementation group: 'javax.json', name: 'javax.json-api', version: '1.1.4'
+    implementation group: 'org.glassfish', name: 'javax.json', version: '1.1.4'
     implementation('org.takes:takes:1.19')
+    implementation 'com.larryhsiao:clotho:1.18.18'
     implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.16.0'
 
     implementation 'org.simplejavamail:simple-java-mail:6.6.1'
