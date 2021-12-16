@@ -27,7 +27,9 @@ public class App {
                         req -> {
                             JsonObject reqBody = Json.createReader(req.body()).readObject();
                             String to = reqBody.getString("email");
-                            String code = reqBody.getString("code");
+                            String title = reqBody.getString("title");
+                            String content = reqBody.getString("content");
+                            String contentType = reqBody.getString("contentType");
                             String from = "2021@larryhsiao.com";
                             String host = "localhost";
                             Properties properties = System.getProperties();
@@ -40,8 +42,8 @@ public class App {
                                     Message.RecipientType.TO,
                                     new InternetAddress(to)
                                 );
-                                message.setSubject("尾牙手機綁定驗證碼");
-                                message.setContent("<h1>驗證碼: " + code + "</h1>", "text/html;charset=utf-8");
+                                message.setSubject(title);
+                                message.setContent(content, contentType);
                                 Transport.send(message);
                                 System.out.println("Sent message successfully....");
                             } catch (MessagingException mex) {
