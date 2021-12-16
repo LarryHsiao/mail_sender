@@ -9,11 +9,12 @@ Request
 
 ```shell
 curl --request POST \
-  --url ${HOST}/send_email \
+  --url http://larryhsiao.com:8081/send_email \
   --data '{
-	"email":"larry_hsiao@cmoney.com.tw",
+	"to":"larry_hsiao@larryhsiao.com",
+	"from": "2021@larryhsiao.com",
 	"title": "title",
-	"content": "<h1>驗證碼: 1234</h1>",
+	"content": "<h1>content: 1234</h1>",
 	"contentType": "text/html;charset=utf-8"
 }'
 ```
