@@ -41,7 +41,7 @@ public class App {
                                     new InternetAddress(to)
                                 );
                                 message.setSubject("尾牙手機綁定驗證碼");
-                                message.setContent("<h1>驗證碼: " + code + "</h1>", "text/html");
+                                message.setContent("<h1>驗證碼: " + code + "</h1>", "text/html;charset=utf-8");
                                 Transport.send(message);
                                 System.out.println("Sent message successfully....");
                             } catch (MessagingException mex) {
