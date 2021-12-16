@@ -30,7 +30,7 @@ public class App {
                             String title = reqBody.getString("title");
                             String content = reqBody.getString("content");
                             String contentType = reqBody.getString("contentType");
-                            String from = "2021@larryhsiao.com";
+                            String from = reqBody.getString("from");
                             String host = "localhost";
                             Properties properties = System.getProperties();
                             properties.setProperty("mail.smtp.host", host);
